@@ -13,7 +13,7 @@ addNewData: async(req,res,next)=>{
         comment
     })
     
-    let resData = await newArticle.save();  
+    let resData = await newData.save();  
     res.json(resData )
 },
 }
