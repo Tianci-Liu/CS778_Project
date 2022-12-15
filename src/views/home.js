@@ -1,7 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router'
 
-const img1 = require('../assets/1.jpeg')
+const img1 = require('../assets/img1.png')
+const img2 = require('../assets/img2.png')
+const img3 = require('../assets/img3.png')
 
 const Card = (props) => {
   const { info, img } = props;
@@ -19,7 +21,7 @@ const Card = (props) => {
       <div className="col-0 hande" onClick={() => setIsOpen(!isOpen)}>
         {
           !isOpen ?
-            <span className="material-symbols-outlined">add_circle</span>
+            <span className="material-symbols-outlined">add_circle </span>
             :
             <span className="material-symbols-outlined">
               do_not_disturb_on
@@ -38,9 +40,9 @@ const Home = () => {
   const naviagtion = useNavigate();
 
   const initData = [
-    { title: 'Model 1', img: img1, className: 'card card-1', info: 'xxxxxxx' },
-    { title: 'Model 2', img: img1, className: 'card card-2', info: 'xxxxxxx' },
-    { title: 'Model 3', img: img1, className: 'card card-3', info: 'xxxxxxx' },
+    { title: 'Model 1', img: img1, className: 'card card-1', info: 'page1 more info....' },
+    { title: 'Model 2', img: img2, className: 'card card-2', info: 'page2 more info....' },
+    { title: 'Model 3', img: img3, className: 'card card-3', info: 'page3 more info....' },
   ]
   return <div className="home-body">
     <div className="title text-center">

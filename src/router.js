@@ -1,4 +1,3 @@
-
 import About from './views/about';
 import Home from './views/home'
 import Page1 from './views/page1';

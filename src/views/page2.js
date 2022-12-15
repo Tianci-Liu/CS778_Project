@@ -15,6 +15,7 @@ const Page2 = () => {
         <Link to="/page2" >Page2</Link>
       </div>
     </div>
+    
   </div>
 }
 export default Page2
