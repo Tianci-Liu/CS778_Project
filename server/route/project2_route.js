@@ -1,33 +1,16 @@
-const express = require('express'),
-    Router = express.Router();
-
-
-// const articleController = require('../controllers/articles');
+const express = require('express');
+const Router = express.Router();
+const controller = require("../controllers/project2_dao")
 
 // new data
-Router.post('/newdata',(req,res) => {
-    console.log("project2: new data")
-    res.json("project2: new data")
-});
+Router.post('/newdata', controller.addData)
 // edit data
-Router.put(`/editdata`,(req,res) => {
-    console.log("project2: edit data")
-    res.json("project2: edit data")
-});
+Router.put(`/editdata`, controller.changeData);
 // list data
-Router.get('/getdata',(req,res) => {
-    console.log("project2: list data")
-    res.json("project2: list data")
-});
+Router.get('/getdata', controller.getList);
 // get data by id
-Router.get('/getdata?:id',(req,res) => {
-    console.log("project2: get data by id")
-    res.json("project2: get data by id")
-});
-// get data by condition
-Router.post('/getdata',(req,res) => {
-    console.log("project2: get data by condition")
-    res.json("project2: get data by condition")
-});
+Router.get('/getdata/?:id', controller.getDataById);
+// ge data by condition
+Router.post('/getdata', controller.getDataByCondition);
 
 module.exports = Router;

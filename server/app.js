@@ -47,23 +47,17 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
-/**
- * routes register
- */
-app.use('/api/user', UserRoute);
-// upload image
 
-app.use('/api/images/',uploadImage)
+const project1route = require("./route/project1_route")
+const project2route = require("./route/project2_route")
+const project3route = require("./route/project3_route")
 
-
-// article routes
-
-app.use('/api/article/',articleRoute)
-
-
+app.use('/project1/', project1route);
+app.use('/project2/', project2route);
+app.use('/project3/', project3route);
 
 app.use((req, res) => {
-  res.status(200).json({ message: 'Hello World' });
+  res.status(200).json({ message: 'Health' });
 });
 
 
