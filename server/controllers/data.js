@@ -1,4 +1,4 @@
-const data = require('../models/data')
+const data = require('../models/dataPro3')
 const controller ={
 
     // generate complete data
