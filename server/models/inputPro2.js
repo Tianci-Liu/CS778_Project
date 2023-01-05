@@ -15,4 +15,4 @@ const Input = new Schema({
 })
 
 
-module.exports = mongoose.model('Input',Input);
+module.exports = mongoose.model('Input2',Input);

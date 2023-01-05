@@ -13,12 +13,11 @@ const Comment = new Schema({
     },
     content:{
         type:String,
-        reqired:true,
+        required:true,
     },
     datetime: {
         type: Date,
         default: Date.now()
-        
     }
 })
 
@@ -26,5 +25,5 @@ Comment.pre('save', async function(next){
 
     }
 )
-   
+
 module.exports= mongoose.model('Comment',Comment)

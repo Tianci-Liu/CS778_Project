@@ -11,7 +11,7 @@ const Data = new Schema({
       type:String
     },
     rank:{
-      type:String
+      type:Number
     },
     comment:{
       type:String
@@ -21,4 +21,4 @@ const Data = new Schema({
 
 
 
-module.exports = mongoose.model('Data',Data);
+module.exports = mongoose.model('Data1',Data);
