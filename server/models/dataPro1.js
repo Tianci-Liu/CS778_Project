@@ -15,6 +15,10 @@ const Data = new Schema({
     },
     comment:{
       type:String
+    },
+    datetime: {
+        type: Date,
+        default: Date.now()
     }
 })
 
