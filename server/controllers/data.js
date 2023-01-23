@@ -1,4 +1,4 @@
-const data = require('../models/dataPro3')
+const data = require('../models/data')
 const controller ={
 
     // generate complete data
@@ -13,7 +13,7 @@ addNewData: async(req,res,next)=>{
         comment
     })
     
-    let resData = await newData.save();  
+    let resData = await newArticle.save();  
     res.json(resData )
 },
 }

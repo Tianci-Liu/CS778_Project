@@ -13,9 +13,7 @@ const controller = {
             let inputReturn
             await input.save(input)
                 .then(res => {inputReturn = res;})
-            const output = new Output({
-                content: item.output
-            })
+            const output = new Output(item.output)
             let outputReturn
             await output.save(output)
                 .then(res => {outputReturn = res;})
@@ -140,7 +138,7 @@ const controller = {
 function formatReturn(data, input, output) {
     data = JSON.parse(JSON.stringify(data))
     data.input = input;
-    data.output = output.content;
+    data.output = output;
     return data
 }
 
