@@ -1,11 +1,10 @@
-const host = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:3100/api' : '/api'
 
 class Ajax {
   ajax = (_url, { method = 'GET', params, data }) => {
     const options = {
       method, headers: { 'Content-Type': 'application/json' }
     }
-    let url = `${host}${_url}`;
+    let url = `${_url}`;
     if (params) {
       url = `${url}?${Object.keys(params).map((key) => `${key}=${params[key]}`).join('&')}`
     }
@@ -20,5 +19,5 @@ class Ajax {
 
   get = (url, params) => this.ajax(url, { method: "GET", params })
 }
-
+// eslint-disable-next-line
 export default new Ajax()

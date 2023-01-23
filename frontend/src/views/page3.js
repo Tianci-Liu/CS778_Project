@@ -1,25 +1,39 @@
 import { Link } from "react-router-dom"
 import React, { useState } from 'react';
 import Star from "../components/star";
+// remove after connect server
 import Ajax from '../ajax';
+import API from '../apis/project3'
 
 const Page3 = () => {
   const [info, setInfo] = useState({ context: '', question: '' })
   const [result, setResult] = useState({ rating: 5, false_probability: null, true_probability: null, label: null })
 
   const handleSubmit = async () => {
-    const res = await Ajax.post('/page3/factsRules', info);
+    // change after connect server
+    const res = await API.sendToAlg(info);
     setResult({ ...res, rating: 5 });
   }
 
   const handleSubmitRatingAndComment = async () => {
-    const data = { ...result, user_input: { ...info } }
-    data.page3_id = data.id;
-    delete data.id;
-    await Ajax.post('/page3/ratingAndComment', data)
+
+    const data = {
+      input:{
+        factsRule: info.context,
+        judgeStatement: info.question
+      },
+      output:{
+        trueProbability: result.true_probability,
+        falseProbability: result.false_probability,
+        label: result.label
+      },
+      rank: result.rating,
+      comment: result.comment
+    }
+    console.log(data)
+    await API.sendToComBack(data)
     setInfo({})
     setResult({})
-    alert('Submit success!')
   }
 
   return <div className="page3-body">

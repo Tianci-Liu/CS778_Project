@@ -1,8 +1,9 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
-import Ajax from '../ajax';
+import API from '../apis/project1';
 import Star from "../components/star";
 const imgUrl = require('../assets/img2.png')
+
 
 const Page1 = () => {
   const [user_input, setUserInput] = useState({})
@@ -29,7 +30,8 @@ const Page1 = () => {
   }
 
   const handleSubmit = async () => {
-    const info = await Ajax.post('/page1/submit', { ...user_input })
+    // change to API after connect server
+    const info = await API.sendToAlg({ ...user_input })
     console.log('info:', info);
     setResult({ ...info, rating: 5, comment: '' })
   }
@@ -41,11 +43,19 @@ const Page1 = () => {
   }
 
   const handleSubmitRatingAndComment = async () => {
-    await Ajax.post('/page1/submit_rating_comment', { ...result, user_input, })
+    let input = Object.keys(user_input).map((key) => {return {key,text:user_input[key]}})
+
+    let req = {
+      input: input,
+      output: result.generated_text,
+      rank: result.rating,
+      comment: result.comment
+    };
+
+    await API.sendToComBack(req)
     setOthers([])
     setResult({})
     setUserInput({})
-    alert('Submit success!')
   }
 
 
