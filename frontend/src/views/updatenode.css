@@ -138,3 +138,87 @@
     color: #777;
     font-size: 12px;
   }
+
+  .dndflow {
+    flex-direction: column;
+    display: flex;
+    flex-grow: 1;
+    height: 100%;
+  }
+  
+  .dndflow aside {
+    border-right: 1px solid #eee;
+    padding: 15px 10px;
+    font-size: 12px;
+    background: #fcfcfc;
+  }
+  
+  .dndflow aside .description {
+    margin-bottom: 10px;
+  }
+  
+  .dndflow .dndnode {
+    height: 20px;
+    padding: 4px;
+    border: 1px solid #1a192b;
+    border-radius: 2px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: grab;
+  }
+  
+  .dndflow .dndnode.Start {
+    border-color: #0041d0;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dndflow .dndnode.End {
+    border-color: #ff0072;
+    height: 25px;
+    width: 25px;
+    background-color: #fff;
+    border-radius: 50%;
+    display: inline-flex;
+    margin: 5px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .dndflow .dndnode.Gate {
+    background: #bbb;
+    width: 25px;
+    height: 25px;
+    transform: rotate(45deg);
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .dndflow .reactflow-wrapper {
+    flex-grow: 1;
+    height: 100%;
+  }
+  
+  .dndflow .selectall {
+    margin-top: 10px;
+  }
+  
+  @media screen and (min-width: 768px) {
+    .dndflow {
+      flex-direction: row;
+    }
+  
+    .dndflow aside {
+      width: 20%;
+      max-width: 250px;
+    }
+  }
+  

@@ -21,10 +21,10 @@ const Card = (props) => {
       <div className="col-0 hande" onClick={() => setIsOpen(!isOpen)}>
         {
           !isOpen ?
-            <span className="material-symbols-outlined">add_circle </span>
+            <span className="material-symbols-outlined">+ </span>
             :
             <span className="material-symbols-outlined">
-              do_not_disturb_on
+              -
             </span>
         }
       </div>
