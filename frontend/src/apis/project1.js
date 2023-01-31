@@ -5,7 +5,8 @@ let com_host = process.env.NODE_ENV === 'development' ? 'http://127.0.0.1:8088/a
 
 class project1Router {
     sendToAlg = (user_input) => {
-        let url = `${alg_host}/page1/submit`
+        // let url = `${alg_host}/page1/submit`
+        let url = `${com_host}/project1/mockdata`
         return Ajax.post(url, {...user_input})
     }
 
