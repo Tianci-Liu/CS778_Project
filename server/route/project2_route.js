@@ -10,7 +10,7 @@ Router.put(`/editdata`, controller.changeData);
 Router.get('/getdata', controller.getList);
 // get data by id
 Router.get('/getdata/?:id', controller.getDataById);
-// ge data by condition
+// get data by condition
 Router.post('/getdata', controller.getDataByCondition);
 
 module.exports = Router;

@@ -1,6 +1,7 @@
 const express = require('express');
 const Router = express.Router();
 const controller = require("../controllers/project3_dao")
+const mock = require("../mock/project3_mock");
 
 // new data
 Router.post('/newdata', controller.addData)
@@ -10,7 +11,9 @@ Router.put(`/editdata`, controller.changeData);
 Router.get('/getdata', controller.getList);
 // get data by id
 Router.get('/getdata/?:id', controller.getDataById);
-// ge data by condition
+// get data by condition
 Router.post('/getdata', controller.getDataByCondition);
+// get mockData
+Router.post('/mockdata', mock.mockdata);
 
 module.exports = Router;
