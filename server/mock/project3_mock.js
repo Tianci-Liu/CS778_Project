@@ -11,7 +11,6 @@ const mock = {
         let trueProb = Math.random()
         let result = {
             input: item,
-            label: "true",
             true_probability: trueProb,
             false_probability: 1-trueProb,
             label: trueProb>0.5?"True":"False"
