@@ -52,9 +52,9 @@ const project1route = require("./route/project1_route")
 const project2route = require("./route/project2_route")
 const project3route = require("./route/project3_route")
 
-app.use('/project1/', project1route);
-app.use('/project2/', project2route);
-app.use('/project3/', project3route);
+app.use('/api/project1/', project1route);
+app.use('/api/project2/', project2route);
+app.use('/api/project3/', project3route);
 
 app.use((req, res) => {
   res.status(200).json({ message: 'Health' });
