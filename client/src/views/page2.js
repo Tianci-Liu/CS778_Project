@@ -18,6 +18,8 @@ import { nodeTypes } from "./nodes";
 import API from '../apis/project2';
 import 'reactflow/dist/style.css';
 import './updatenode.css';
+import { Button, Input, message } from 'antd';
+import { Link } from 'react-router-dom';
 
 const flowKey = 'saved-flow';
 
@@ -230,30 +232,50 @@ const SaveRestore = () => {
 
   }
 
-  const onSave = useCallback(async () => {
+  const onSave = async () => {
     if (rfInstance) {
       const flow = rfInstance.toObject();
       console.log('flow', flow);
-      localStorage.setItem(flowKey, JSON.stringify(flow));
+      //localStorage.setItem(flowKey, JSON.stringify(flow));
 
       const data = {
         edges: flow.edges.map((p) => ({ source: p.source, target: p.target, label: p.label })),
         nodes: flow.nodes.map((p) => ({ id: p.id, type: p.type, data_label: p.data.label }))
       }
+      message.open({
+        key: "loadig",
+        type: 'loading',
+        content: 'Loading...',
+        duration: 10000
+      });
       const res = await API.sendToAlg(data);
       setResult({ ...res, rating: 5 });
+      message.destroy();
     }
-  }, [rfInstance]);
+  };
 
   return (
     <div className='page2-body'>
+      
+      <div className="row py-0 align-center" style={{ display: "flex", alignItems: "center", padding: "10px" }}>
+        <div className="col-1" style={{ color: "#000", fontWeight: "bold", borderLeft: "4px solid #000", paddingLeft: "5px" }}>
+          AI Model 2
+        </div>
+        <div className="col-0 px-3" style={{ backgroundColor: "#4444dd", borderRadius: 5, padding: "5px " }}>
+          <Link to="/" style={{ color: "#fff" }}>Home</Link>
+        </div>
+        <div className="col-0" style={{ backgroundColor: "#9999dd", borderRadius: 5, padding: "5px ", marginLeft: 10 }}>
+          <Link to="/page2" style={{ color: "#fff" }}>Page2</Link>
+        </div>
+      </div>
+      
       <div
         style={{
           height: "55vh",
-          width: "63vw",
-          border: "1px solid black",
-          marginLeft: "1vw"
+          width: "100%",
+          border: "1px solid #4096ff",
         }}>
+
         <div className="dndflow">
           <ReactFlowProvider>
             <div className="reactflow-wrapper" ref={reactFlowWrapper}>
@@ -304,44 +326,50 @@ const SaveRestore = () => {
                   <button onClick={() => { onAddGate(); gidplus(); }}>Add Gate</button>
                   <br/><br/>
                 */}
-
-                  <input
-                    value={newName}
-                    onChange={(e) => setNewName(e.target.value)}
-                    type="text"
-                    placeholder='Double Click Event to Edit'
-                  />
-                  <button type="button" onClick={updateNodeHandler}>Update Event</button>
-                  <br /><br />
-
-                  <input
-                    value={newNameE}
-                    onChange={(e) => setNewNameE(e.target.value)}
-                    type="text"
-                    placeholder='Single Click Edge to Edit'
-                  />
-                  <button type="button" onClick={updateEdgeHandler}>
-                    Update Edge
-                  </button>
-                  <br /><br />
-
-                  <button onClick={() => { onRestore(); reset_ids(); }}>Restore</button>
-                  <button onClick={() => { onSave(); }}>Submit</button>
+                  <Button onClick={() => { onRestore(); reset_ids(); }}>Restore</Button>
+                  <Button type='primary' onClick={() => { onSave(); }}>Submit</Button>
                 </div>
                 <Controls />
                 <Background />
               </ReactFlow>
             </div>
-            <Sidebar />
+            <div className='aside'>
+
+              <Sidebar />
+              <div>
+                <div style={{ display: "flex" }}>
+                  <Input
+                    value={newName}
+                    onChange={(e) => setNewName(e.target.value)}
+                    type="text"
+                    placeholder='Double Click Event to Edit'
+                  />
+                  <Button style={{ marginLeft: 10 }} type="primary" onClick={updateNodeHandler}>Update Event</Button>
+                </div>
+                <div style={{ display: "flex", marginTop: 10 }}>
+                  <Input
+                    value={newNameE}
+                    onChange={(e) => setNewNameE(e.target.value)}
+                    type="text"
+                    placeholder='Single Click Edge to Edit'
+                  />
+                  <Button style={{ marginLeft: 10 }} type="primary" onClick={updateEdgeHandler}>
+                    Update Edge
+                  </Button>
+                </div>
+
+              </div>
+            </div>
+          
           </ReactFlowProvider>
         </div>
       </div>
 
       {
         result && result.generated_text &&
-        <div className="rating-comment">
+        <div className="rating-comment" style={{ marginTop: "30px" }}>
           <div className="row">
-            <div className="col-1">
+            <div className="col-1" style={{ fontSize: 14, lineHeight: "25px" }}>
               {result.generated_text}
             </div>
             <div className="col-0">
@@ -352,7 +380,7 @@ const SaveRestore = () => {
             <textarea placeholder="Your comment" value={result.comment || ''} onChange={(e) => setResult({ ...result, comment: e.target.value })}></textarea>
           </div>
           <div className="py-2 text-center">
-            <button onClick={ () => { handleSubmitRatingAndComment(); onRestore(); }}>Submit Rating and Comment</button>
+            <Button type="primary" onClick={ () => { handleSubmitRatingAndComment(); onRestore(); }}>Submit Rating and Comment</Button>
           </div>
         </div>
       }

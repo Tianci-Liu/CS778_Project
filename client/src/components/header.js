@@ -4,8 +4,8 @@ const Header = () => {
     <div className="img header"></div>
     <div className="hb-bg text-center global-center">
       <div>
-        <div><h1>Project</h1></div>
-        <div><h6>Description</h6></div>
+        <div><h1>CS778 Project</h1></div>
+        <div><h4>Web-TaKG: Deploying Natural-language Generation Model on the Web</h4></div>
       </div>
 
     </div>

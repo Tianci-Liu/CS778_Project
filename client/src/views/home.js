@@ -40,12 +40,12 @@ const Home = () => {
   const naviagtion = useNavigate();
 
   const initData = [
-    { title: 'Model 1', img: img1, className: 'card card-1', info: 'page1 more info....' },
-    { title: 'Model 2', img: img2, className: 'card card-2', info: 'page2 more info....' },
-    { title: 'Model 3', img: img3, className: 'card card-3', info: 'page3 more info....' },
+    { title: 'Model 1', img: img1, className: 'card card-1', info: 'This model takes a table of personal information and generating a biography that is consistent with the table information.' },
+    { title: 'Model 2', img: img2, className: 'card card-2', info: 'This model will convert the business process flow to natural language texts.' },
+    { title: 'Model 3', img: img3, className: 'card card-3', info: 'The model predicts whether a question is correct according to the context and question entered by the user.' },
   ]
   return <div className="home-body">
-    <div className="title text-center">
+    <div className="title text-center" style={{ marginTop: 21 }}>
       <h2>AI Models</h2>
     </div>
     <div className="row row-wrap">

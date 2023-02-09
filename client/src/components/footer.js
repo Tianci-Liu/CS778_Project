@@ -4,8 +4,8 @@ const Footer = () => {
   }}>
     <div className="row text-nowrap">
       <div className="col-1">
-        <a href="" target='_blank' rel="noopener noreferrer" >
-          111
+        <a href="https://www.liuailab.org/" target='_blank' rel="noopener noreferrer" >
+          AI Lab
         </a>
       </div>
     </div>
