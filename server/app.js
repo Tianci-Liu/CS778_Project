@@ -1,19 +1,25 @@
 const express = require('express'),
-  bodyParser = require('body-parser'),
-  mongoose = require('mongoose');
+bodyParser = require('body-parser');
+//mongoose = require('mongoose');
 
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
 
-const app = express(),
-  config = require('./config');
+const app = express();
+//config = require('./config');
+const http = require('http').createServer(app);
+const PORT = process.env.PORT || 3001;
+const path = require('path');
+
+process.env.NODE_ENV = 'production';
+console.log('env', process.env.NODE_ENV);
 
 const error = require('./middlewares/error'),
-  logger = require('./middlewares/logger');
+logger = require('./middlewares/logger');
 
 /**
  * mongondb
- */
+ 
 mongoose
   .connect(config.database.local, {
     useNewUrlParser: true,
@@ -28,6 +34,8 @@ mongoose
     }
   );
 
+*/
+
 app.use(cors());
 app.use(cookieParser());
 // Error Handle
@@ -38,7 +46,16 @@ app.use(logger());
 /**
  * static files
  */
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.join(__dirname, '../client/build')));
+
+  app.get('/*', function (req, res) {
+    res.sendFile(path.join(__dirname, '../client/build/index.html'));
+  });
+}
+
 
 /**
  * HTTP body parser
@@ -65,8 +82,6 @@ app.use((req, res) => {
 /**
  * start
  */
-app.listen(config.port, (err) => {
-  if (!err) console.log(`[App] server running on port: ${config.port}`);
+http.listen(PORT, (err) => {
+  if (!err) console.log(`[App] server running on port: ${PORT}`);
 });
-
-module.exports = app;
