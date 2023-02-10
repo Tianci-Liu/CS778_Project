@@ -4,14 +4,10 @@ const Schema = mongoose.Schema;
 
 
 const Input = new Schema({
-    factsRule: {
+    content:{
         type:String,
         required:true
     },
-    judgeStatement:{
-        type:String,
-        required:true
-    }
 })
 
 

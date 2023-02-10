@@ -1,0 +1,223 @@
+.updatenode__controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 4;
+  font-size: 12px;
+}
+
+.updatenode__controls label {
+  display: block;
+}
+
+.updatenode__bglabel {
+  margin-top: 10px;
+}
+
+.updatenode__checkboxwrapper {
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.save__controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 4;
+  font-size: 12px;
+}
+
+.save__controls button {
+  margin-left: 5px;
+}
+
+.triangle-node {
+  background-color: "#9ca8b3";
+  width: 0px;
+  height: 0px;
+  border-style: inset;
+  border-width: 0 50px 80px 50px;
+  border-color: transparent transparent #9ca8b3 transparent;
+  float: left;
+  transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -webkit-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+}
+
+.triangle-node-text {
+  text-align: center;
+  top: 40px;
+  left: -23px;
+  position: relative;
+  width: 46px;
+  height: 46px;
+  margin: 0px;
+}
+
+.layoutflow {
+  flex-grow: 1;
+  position: relative;
+  height: 100%;
+}
+
+.layoutflow .controls {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  z-index: 10;
+  font-size: 12px;
+}
+
+.layoutflow .controls button:first-child {
+  margin-right: 10px;
+}
+
+.simple-floatingedges {
+  flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.simple-floatingedges .react-flow__handle {
+  width: 8px;
+  height: 8px;
+  background-color: #bbb;
+}
+
+.simple-floatingedges .react-flow__handle-top {
+  top: -15px;
+}
+
+.simple-floatingedges .react-flow__handle-bottom {
+  bottom: -15px;
+}
+
+.simple-floatingedges .react-flow__handle-left {
+  left: -15px;
+}
+
+.simple-floatingedges .react-flow__handle-right {
+  right: -15px;
+}
+
+.simple-floatingedges .react-flow__node-custom {
+  background: #fff;
+  border: 1px solid #1a192b;
+  border-radius: 3px;
+  color: #222;
+  font-size: 12px;
+  padding: 10px;
+  text-align: center;
+  width: 150px;
+}
+
+.react-flow__edge-path {
+  stroke: #333;
+  stroke-width: 2;
+}
+
+.temp .react-flow__edge-path {
+  stroke: #bbb;
+  stroke-dasharray: 5 5;
+}
+
+.text-updater-node {
+  height: 50px;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 5px;
+  background: white;
+}
+
+.text-updater-node label {
+  display: block;
+  color: #777;
+  font-size: 12px;
+}
+
+.dndflow {
+  flex-direction: column;
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.dndflow .aside {
+  border-right: 1px solid #eee;
+  padding: 15px 10px;
+  font-size: 12px;
+  background: #fcfcfc;
+  width: 300px;
+}
+
+.dndflow .aside .description {
+  margin-bottom: 10px;
+}
+
+.dndflow .dndnode {
+  height: 20px;
+  padding: 4px;
+  border: 1px solid #1a192b;
+  border-radius: 2px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: grab;
+}
+
+.dndflow .dndnode.Start {
+  border-color: #0041d0;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  font-size: 13px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dndflow .dndnode.End {
+  border-color: #ff0072;
+  height: 40px;
+  width: 40px;
+  background-color: #fff;
+  border-radius: 50%;
+  display: inline-flex;
+  margin: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dndflow .dndnode.Gate {
+  background: #bbb;
+  width: 25px;
+  height: 25px;
+  transform: rotate(45deg);
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.dndflow .reactflow-wrapper {
+  flex-grow: 1;
+  height: 100%;
+}
+
+.dndflow .selectall {
+  margin-top: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .dndflow {
+    flex-direction: row;
+  }
+
+  .dndflow .aside {
+    width: 300px;
+  }
+}

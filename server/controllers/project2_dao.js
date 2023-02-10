@@ -35,7 +35,6 @@ const controller = {
         }catch (e){
             sendErrorMessage(res)
         }
-
     },
     changeData: async(req,res)=>{
         const dbItem = await Data.findById(item._id);
