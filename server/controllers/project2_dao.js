@@ -7,15 +7,13 @@ const controller = {
         try{
             const item = req.body;
             const input = new Input({
-                factsRule:item.input.factsRule,
-                judgeStatement: item.input.judgeStatement
+                content:item.input,
             });
             let inputReturn
             await input.save(input)
                 .then(res => {inputReturn = res;})
             const output = new Output({
-                templateContent: item.output.templateContent,
-                t5Content: item.output.t5Content
+                content: item.generated_text
             })
             let outputReturn
             await output.save(output)

@@ -3,10 +3,7 @@ const Schema = mongoose.Schema;
 
 
 const Output = new Schema({
-    templateContent:{
-        type:String,
-    },
-    t5Content:{
+    content:{
         type:String,
     }
 })

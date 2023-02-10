@@ -6,6 +6,7 @@
 .pnp.js
 
 /.git
+/.idea
 /.vs
 /.vscode
 
