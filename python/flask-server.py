@@ -15,16 +15,12 @@ def getResult():
 
 
     req = request.get_json()
-    print(req)  
 
     ## Sample input includes context and question
     sample_context = req["factsRule"]
     sample_question = req["judgeStatement"]
-    print(sample_context) 
-    print(sample_question) 
- 
+    
     ## Load model
-
     checkpoint_path = 'checkpoints_depth_0_1_2_3_ext_pararule_plus_all/'
     checkpoint_file = 'checkpoint_best.pt'
     data_name_or_path = 'depth-0-1-2-3-ext-pararule-plus-all-table-bin'
