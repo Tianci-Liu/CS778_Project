@@ -55,7 +55,7 @@ def getResult():
                 "factsRule" : sample_context,
                 "judgeStatement" : sample_question
             },
-            "label": prediction,
+            "label": 'True' if prediction>0 else 'False',
             "true_probability": true_prediction_probability,
             "false_probability": false_prediction_probability,
         }
